@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Media Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav-menu">
+        <select onchange="location = this.value;">
+            <option value="" disabled>Select NASA API</option>
+            <option value="index.html" selected>Image and Video Library</option>
+            <option value="../APOD/index.html">Astronomy Picture of the Day</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>NASA Image and Video Library</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search (mars, apollo, hubble...)">
+                <select id="mediaType">
+                    <option value="all">All Media</option>
+                    <option value="image">Images</option>
+                    <option value="video">Videos</option>
+                </select>
+                <button onclick="searchMedia()">Search</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="results-container">
+                <div class="loading hidden">Searching...</div>
+                <div class="grid" id="resultsGrid"></div>
+            </div>
+        </main>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="close-btn" aria-label="Close">&times;</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <div class="search-suggestions">
+            <section class="suggestion-category">
+                <h2>Space Missions</h2>
+                <div class="tags">
+                    <button class="tag" onclick="searchByTag('apollo')">Apollo</button>
+                    <button class="tag" onclick="searchByTag('mars rover')">Mars Rover</button>
+                    <button class="tag" onclick="searchByTag('iss')">ISS Space Station</button>
+                    <button class="tag" onclick="searchByTag('hubble')">Hubble</button>
+                    <button class="tag" onclick="searchByTag('space shuttle')">Space Shuttle</button>
+                    <button class="tag" onclick="searchByTag('voyager')">Voyager</button>
+                    <button class="tag" onclick="searchByTag('curiosity')">Curiosity</button>
+                    <button class="tag" onclick="searchByTag('perseverance')">Perseverance</button>
+                    <button class="tag" onclick="searchByTag('cassini')">Cassini</button>
+                    <button class="tag" onclick="searchByTag('artemis')">Artemis</button>
+                </div>
+            </section>
+
+            <section class="suggestion-category">
+                <h2>Solar System</h2>
+                <div class="tags">
+                    <button class="tag" onclick="searchByTag('sun')">Sun</button>
+                    <button class="tag" onclick="searchByTag('mercury')">Mercury</button>
+                    <button class="tag" onclick="searchByTag('venus')">Venus</button>
+                    <button class="tag" onclick="searchByTag('earth')">Earth</button>
+                    <button class="tag" onclick="searchByTag('moon')">Moon</button>
+                    <button class="tag" onclick="searchByTag('mars')">Mars</button>
+                    <button class="tag" onclick="searchByTag('jupiter')">Jupiter</button>
+                    <button class="tag" onclick="searchByTag('saturn')">Saturn</button>
+                    <button class="tag" onclick="searchByTag('uranus')">Uranus</button>
+                    <button class="tag" onclick="searchByTag('neptune')">Neptune</button>
+                    <button class="tag" onclick="searchByTag('pluto')">Pluto</button>
+                    <button class="tag" onclick="searchByTag('asteroid')">Asteroids</button>
+                    <button class="tag" onclick="searchByTag('comet')">Comets</button>
+                </div>
+            </section>
+
+            <section class="suggestion-category">
+                <h2>Deep Space</h2>
+                <div class="tags">
+                    <button class="tag" onclick="searchByTag('nebula')">Nebulas</button>
+                    <button class="tag" onclick="searchByTag('galaxy')">Galaxies</button>
+                    <button class="tag" onclick="searchByTag('supernova')">Supernovas</button>
+                    <button class="tag" onclick="searchByTag('black hole')">Black Holes</button>
+                    <button class="tag" onclick="searchByTag('milky way')">Milky Way</button>
+                    <button class="tag" onclick="searchByTag('andromeda')">Andromeda</button>
+                    <button class="tag" onclick="searchByTag('quasar')">Quasars</button>
+                    <button class="tag" onclick="searchByTag('star cluster')">Star Clusters</button>
+                    <button class="tag" onclick="searchByTag('exoplanet')">Exoplanets</button>
+                </div>
+            </section>
+
+            <section class="suggestion-category">
+                <h2>Phenomena</h2>
+                <div class="tags">
+                    <button class="tag" onclick="searchByTag('aurora')">Aurora</button>
+                    <button class="tag" onclick="searchByTag('eclipse')">Eclipses</button>
+                    <button class="tag" onclick="searchByTag('meteor')">Meteors</button>
+                    <button class="tag" onclick="searchByTag('solar flare')">Solar Flares</button>
+                    <button class="tag" onclick="searchByTag('northern lights')">Northern Lights</button>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 - NASA Image and Video Library API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-menu">
+        <select onchange="location = this.value;">
+            <option value="" disabled>Select NASA API</option>
+            <option value="../ImgVid/index.html">Image and Video Library</option>
+            <option value="index.html" selected>Astronomy Picture of the Day</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>NASA - Astronomy Picture of the Day</h1>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="single">Date unique</button>
+                <button class="tab-btn" data-tab="range">Plage de dates</button>
+            </div>
+            
+            <div class="tab-content" id="single-tab">
+                <div class="date-selector">
+                    <input type="date" id="singleDatePicker">
+                    <button onclick="getAPODSingle()">Afficher</button>
+                </div>
+            </div>
+
+            <div class="tab-content hidden" id="range-tab">
+                <div class="date-range-selector">
+                    <div>
+                        <label for="startDate">Date début:</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div>
+                        <label for="endDate">Date fin:</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <button onclick="getAPODRange()">Afficher</button>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div id="apod-container">
+                <div class="loading">Chargement...</div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 - NASA APOD API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
